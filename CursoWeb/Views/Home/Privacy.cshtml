@@ -1,0 +1,31 @@
+﻿@using System.Globalization
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Minha pagina de privacidade.</p>
+
+@{
+    // string texto = "300";
+    // int n1 = Convert.ToInt32(texto);
+    // <h1>@texto</h1>
+    // <h1>@n1</h1>
+
+    // <h1>Short format date: @DateTime.Now.ToShortDateString()</h1>
+    // <h1>Long format date: @DateTime.Now.ToLongDateString()</h1>
+    // <h1>Short format time: @DateTime.Now.ToShortTimeString()</h1>
+    // <h1>Long format time: @DateTime.Now.ToLongTimeString()</h1>
+
+    //Ctrl + K + D - Comentar linhas selecionadas
+
+    CultureInfo Pais = new CultureInfo("pt-BR");
+    for (int i = 1; i <= 7; i++)
+    {
+        if (i == 2 || i == 6)
+        {
+            <h1>@DateTime.Now.AddDays(i).ToString("D", Pais)</h1>
+        }
+    }
+
+}

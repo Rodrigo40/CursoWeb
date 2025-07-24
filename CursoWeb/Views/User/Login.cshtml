@@ -1,0 +1,21 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "Login";
+}
+<form method="post">
+    <div class="text-center">
+        <input class="form-control" placeholder="´Login" name="login" />
+        <br />
+        <input class="form-control" placeholder="Password" name="password" />
+        <br />
+        <input id="texto" />
+    </div>
+    <br />
+    <button class="btn btn-primary" type="submit">Enviar</button>
+
+</form>
+
+@{
+
+    <h1 class="display-4">Bem vindo @Model.Login</h1>
+}

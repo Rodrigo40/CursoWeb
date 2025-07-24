@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Do-While</h1>
+</div>
+
+<div class="alert alert-danger">
+    @{
+        List<string> Nomes = new List<string>()
+        {
+            "Nao","Sim"
+        };
+        string[] Di = new string[2];
+
+        int count = 0;
+        do
+        {
+            <h1>@Nomes[count]</h1>
+            count++;
+
+        } while (count < Nomes.Count);
+    }
+</div>

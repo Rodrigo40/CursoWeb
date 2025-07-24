@@ -1,0 +1,42 @@
+﻿@model Pessoa // Retorn um objeto nulo
+@{
+    ViewData["Title"] = "Pessoa";
+    int ano = 0;
+}
+<h1 class="display-4">Listas de Pessoas</h1>
+<a class="btn btn-primary" asp-controller="Pessoa" asp-action="Adicionar">Adicionar</a>
+<a class="btn btn-danger" asp-controller="Pessoa" asp-action="LimparLista">Limpar</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Altura</th>
+            <th>Ano de nascimento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.GetPessoa().Count != 0)
+        {
+            @foreach (var p in Model.GetPessoa())
+            {
+                <tr>
+                    @{
+                        ano = DateTime.Now.Year - p.AnoNascimento;
+                    }
+
+                    <td>@p.Nome</td>
+                    <td style="color:teal">@ano</td>
+                    <td>@p.Altura</td>
+                    <td>@p.AnoNascimento</td>
+                </tr>
+            }
+
+
+        }
+        else
+        {
+            <h1 class="display-4 alert alert-danger">N ao existem pessoas yha</h1>
+        }
+    </tbody>
+</table>

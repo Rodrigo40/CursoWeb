@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Metodos";
+}
+<form method="post">
+    <div class="text-center">
+        <input class="form-control" placeholder="Nome completo" name="valor1" />
+        <br />
+        <input class="form-control" placeholder="Idade" name="valor2" />
+        <br />
+        <input id="texto" />
+    </div>
+    <br />
+    <button class="btn btn-primary" type="submit">Enviar</button>
+
+</form>
+
+@{
+    if (ViewData["valor1"] != null && ViewData["valor2"] != null)
+    {
+        <p>@ViewData["valor1"]</p>
+        <p>@ViewData["valor2"]</p>
+        <h1 id="id">@ViewData["result"]</h1>
+    }
+}
+<script>
+    document.getElementById("texto").value= document.getElementById("id").innerHTML;
+</script>

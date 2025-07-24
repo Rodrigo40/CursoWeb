@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Adicionar Pessoa";
+}
+@{
+    if (ViewBag.erro != null)
+    {
+        <div class="alert alert-danger">
+        <h1 class="display-4">@ViewBag.erro.ToString()</h1>
+        </div>
+    }
+}
+<div>
+    <form method="post">
+        <input class="form-control" placeholder="Nome da pessoa" name="nome" />
+        <br />
+        <input class="form-control" type="number" placeholder="Ano de nascimento" name="ano" />
+        <br />
+        <input class="form-control" type="number" placeholder="Altura" name="altura" />
+        <br />
+        <input class="btn btn-success" type="submit" value="Adicionar" />
+
+    </form>
+</div>

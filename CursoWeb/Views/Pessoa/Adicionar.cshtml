@@ -2,10 +2,11 @@
     ViewData["Title"] = "Adicionar Pessoa";
 }
 @{
-    if (ViewBag.erro != null)
+    if (Convert.ToString(ViewBag.msg) == "Adicionada com sucesso")
     {
-        <div class="alert alert-danger">
-        <h1 class="display-4">@ViewBag.erro.ToString()</h1>
+        <div class="alert alert-success">
+        <h1 class="display-4">@ViewBag.msg.ToString()</h1>
+        <a asp-controller="Pessoa" asp-action="Index">Ver pessoas</a>
         </div>
     }
 }

@@ -8,6 +8,7 @@ namespace CursoWeb.Controllers
         public IActionResult Index()
         {
             return View(Pessoa.GetInstancia());
+            //return View("Adicionar");
         }
         [BindProperty]
         public string nome { get; set; }
@@ -25,12 +26,10 @@ namespace CursoWeb.Controllers
                     AnoNascimento = ano,
                     Altura = altura
                 };
-                Pessoa.GetInstancia().Adicionar(pessoa);
-                return RedirectToAction("Index");
-            }
-            else
-                ViewBag.erro = "Ops, vc nao presta!";
+                ViewBag.msg = Pessoa.GetInstancia().Adicionar(pessoa);
+                //return RedirectToAction("Index");
 
+            }
             return View();
         }
         public IActionResult LimparLista()

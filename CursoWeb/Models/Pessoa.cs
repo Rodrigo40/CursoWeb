@@ -10,7 +10,7 @@ namespace CursoWeb.Models
         public Pessoa() { }
         public static Pessoa GetInstancia()
         {
-            if (_Pessoa==null)
+            if (_Pessoa == null)
                 _Pessoa = new Pessoa();
             return _Pessoa;
         }
@@ -27,11 +27,15 @@ namespace CursoWeb.Models
         {
             return p;
         }
+        public List<Pessoa> GetPessoa(string nome)
+        {
+            return p.Where(x => x.Nome == nome).ToList();
+        }
 
         public string Adicionar(Pessoa pessoa)
         {
             p.Add(pessoa);
-            return $"{pessoa.Nome} adicionada com sucesso";
+            return "Adicionada com sucesso";
         }
 
         #endregion

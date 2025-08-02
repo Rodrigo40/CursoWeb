@@ -2,20 +2,23 @@
 @{
     ViewData["Title"] = "Login";
 }
-<form method="post">
-    <div class="text-center">
-        <input class="form-control" placeholder="´Login" name="login" />
-        <br />
-        <input class="form-control" placeholder="Password" name="password" />
-        <br />
-        <input id="texto" />
+
+<div class="d-flex justify-content-center mt-5">
+    <div class="w-100" style="max-width: 400px;">
+        <form asp-controller="User" asp-action="Login" method="post">
+            <div class="form-group mb-3">
+                <label>Login</label>
+                <input class="form-control" asp-for="Login" placeholder="Login" name="login" />
+                @Html.ValidationMessageFor(m => m.Login)
+            </div>
+
+            <div class="form-group mb-3">
+                <label>Password</label>
+                <input class="form-control" asp-for="Password" placeholder="Password" name="password" />
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
     </div>
-    <br />
-    <button class="btn btn-primary" type="submit">Enviar</button>
-
-</form>
-
-@{
-
-    <h1 class="display-4">Bem vindo @Model.Login</h1>
-}
+</div>

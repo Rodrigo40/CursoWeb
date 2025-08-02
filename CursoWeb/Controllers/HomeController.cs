@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using CursoWeb.Interfaces;
 using CursoWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,11 +7,11 @@ namespace CursoWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ISessao _sessao;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ISessao sessao)
         {
-            _logger = logger;
+            _sessao = sessao;
         }
         public IActionResult MetodosPage(string valor1, string valor2)
         {
@@ -19,17 +20,20 @@ namespace CursoWeb.Controllers
             ViewData["result"] = Multiplicar(Convert.ToDouble(valor1), Convert.ToDouble(valor2));
             return View();
         }
-        private double Multiplicar(double v1,double v2)
+        private double Multiplicar(double v1, double v2)
         {
             return v1 * v2;
         }
-        public IActionResult Index()
+        public IActionResult Index(UserModel user)
         {
-            return View();
+            if (_sessao.BuscarSessaoDoUsuario() != null)
+                return View();
+            else
+                return RedirectToAction("Login", "User");
         }
         public IActionResult Sobre()
         {
-            return View();  
+            return View();
         }
 
         public IActionResult Privacy()

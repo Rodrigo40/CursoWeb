@@ -1,32 +1,53 @@
-﻿using CursoWeb.Models;
+﻿using CursoWeb.Interfaces;
+using CursoWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CursoWeb.Controllers
 {
     public class UserController : Controller
     {
+        private readonly ISessao _sessao;
+        public UserController(ISessao sessao)
+        {
+            _sessao = sessao;
+        }
         public IActionResult Index()
         {
+            if (_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
             return View();
         }
         public IActionResult Novo()
-        { 
+        {
             return View();
         }
-        [BindProperty]
-        public string login { get; set; }
-        [BindProperty]
-        public string password { get; set; }
-        public IActionResult Login()
+        public IActionResult Login(UserModel user)
         {
-            UserModel user = new UserModel();
-            user.Login = login;
-            user.Password = password;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    user.Login = user.Login;
+                    user.Password = user.Password;
+
+                    _sessao.CriarSessaoDoUsuario(user);
+                    return RedirectToAction("Index", "Home");
+                }
+                return View();
+            }
+            catch (Exception)
+            {
+
+            }
             return View(user);
         }
         public IActionResult Editar()
         {
             return View();
+        }
+        public IActionResult Logout()
+        {
+            _sessao.RemoverSessaoDoUsuario();
+            return RedirectToAction("Login");
         }
     }
 }

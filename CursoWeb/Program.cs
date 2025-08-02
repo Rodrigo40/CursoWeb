@@ -1,8 +1,19 @@
+using CursoWeb.Interfaces;
+using CursoWeb.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddScoped<ISessao, Sessao>();
+builder.Services.AddSession(s =>
+    {
+        s.Cookie.HttpOnly = true;
+        s.Cookie.IsEssential = true;
+    });
+;
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,8 +28,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

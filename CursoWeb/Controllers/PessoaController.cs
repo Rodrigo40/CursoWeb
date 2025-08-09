@@ -27,8 +27,8 @@ namespace CursoWeb.Controllers
                     Altura = altura
                 };
                 ViewBag.msg = Pessoa.GetInstancia().Adicionar(pessoa);
-                //return RedirectToAction("Index");
-
+                TempData["SuccessMessage"] = ViewBag.msg;
+                return RedirectToAction("Index");
             }
             return View();
         }

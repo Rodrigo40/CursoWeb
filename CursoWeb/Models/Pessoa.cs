@@ -35,7 +35,7 @@ namespace CursoWeb.Models
         public string Adicionar(Pessoa pessoa)
         {
             p.Add(pessoa);
-            return "Adicionada com sucesso";
+            return $"Adicionada com sucesso {pessoa.Nome}";
         }
 
         #endregion

@@ -49,6 +49,26 @@
         </nav>
     </header>
     <div class="container">
+        <!--Sucess dialog start modal-->
+        <div id="modalSuccess" class="modal hide fade text-width:30%;"
+             role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Informação</h2>
+                    </div>
+                    <div id="modalAlertBody" class="modal-body alert alert-success">
+                        Mensagem aqui
+                    </div>
+                    <div class="modal-footer">
+                        &nbsp;
+                        <a id="closemodal" class="btn btn-primary" data
+                           dismiss="modal">Fechar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Sucess dialog fim modal-->
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

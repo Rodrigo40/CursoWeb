@@ -9,6 +9,6 @@ namespace CursoWeb.Models
         public string Login { get; set; }
         [Required(ErrorMessage = "Informe sua password")]
         public string Password { get; set; }
-        public bool LembraMe { get; set; } //Novo
+        //public bool LembraMe { get; set; } //Novo
     }
 }

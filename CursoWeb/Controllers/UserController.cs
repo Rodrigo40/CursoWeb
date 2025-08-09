@@ -13,32 +13,36 @@ namespace CursoWeb.Controllers
         }
         public IActionResult Index()
         {
-            if (_sessao.BuscarSessaoDoUsuario() != null) return RedirectToAction("Index", "Home");
+            if (_sessao.BuscarSessaoDoUsuario() != null) 
+                return RedirectToAction("Index", "Home");
             return View();
         }
         public IActionResult Novo()
         {
             return View();
         }
-        public IActionResult Login(UserModel user)
+        public IActionResult Login()
+        {
+            bool logado = _sessao.BuscarSessaoDoUsuario() != null ? true : false;
+            ViewBag.log = logado;
+            return View();
+        }
+        public IActionResult LoginLogar(UserModel user)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    user.Login = user.Login;
-                    user.Password = user.Password;
-
                     _sessao.CriarSessaoDoUsuario(user);
                     return RedirectToAction("Index", "Home");
                 }
-                return View();
+                return View("Login",user);
             }
             catch (Exception)
             {
 
             }
-            return View(user);
+            return View("Login");
         }
         public IActionResult Editar()
         {

@@ -12,7 +12,7 @@ namespace CursoWeb.Models
         }
         public UserModel BuscarSessaoDoUsuario()
         {
-            string sessaoUsuario = _httpContext.HttpContext.Session.GetString("SessaoUsuarioLogado");
+            string sessaoUsuario = _httpContext.HttpContext.Session.GetString("SessaoUsuarioLogado2");
 
             if (string.IsNullOrEmpty(sessaoUsuario)) return null;
 
@@ -24,13 +24,13 @@ namespace CursoWeb.Models
             //criando a sessao do usuario
             string valor = JsonConvert.SerializeObject(model);
 
-            _httpContext.HttpContext.Session.SetString("SessaoUsuarioLogado", valor);
+            _httpContext.HttpContext.Session.SetString("SessaoUsuarioLogado2", valor);
         }
 
         public void RemoverSessaoDoUsuario()
         {
             //Remover a sessao do usuario
-            _httpContext.HttpContext.Session.Remove("SessaoUsuarioLogado");
+            _httpContext.HttpContext.Session.Remove("SessaoUsuarioLogado2");
         }
     }
 }

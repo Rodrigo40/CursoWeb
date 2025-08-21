@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoWeb", "CursoWeb\CursoWeb.csproj", "{13667C16-63C0-4F65-8CC3-2D6C628A6CB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SessionDemo", "SessionDemo", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSessoesMVC", "DemoSessoesMVC\DemoSessoesMVC.csproj", "{C0D38ED0-58F5-498A-8442-7C1D52DC1E1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{13667C16-63C0-4F65-8CC3-2D6C628A6CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13667C16-63C0-4F65-8CC3-2D6C628A6CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13667C16-63C0-4F65-8CC3-2D6C628A6CB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D38ED0-58F5-498A-8442-7C1D52DC1E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D38ED0-58F5-498A-8442-7C1D52DC1E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D38ED0-58F5-498A-8442-7C1D52DC1E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D38ED0-58F5-498A-8442-7C1D52DC1E1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C0D38ED0-58F5-498A-8442-7C1D52DC1E1D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {928D210A-1F10-419B-B385-CE0A87AC4ED0}

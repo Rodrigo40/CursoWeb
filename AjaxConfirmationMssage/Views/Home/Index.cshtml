@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Lista de linguagem de progração</h1>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Cod</th>
+        <th>Nome</th>
+        <th>Tipaagem</th>
+        <th>Data de criação</th>
+        <th>ações</th>
+
+    </tr>
+    @{
+
+        foreach (var item in AjaxConfirmationMssage.Models.LinguagemModel.Instancia.lista)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Tipagem</td>
+                <td>@item.DataCricao</td>
+                <td>
+                    <a class="btn btn-danger btn-sm delete"
+                       data-id="@item.Id"
+                       data-controller="Home"
+                       data-action="Apagar"
+                       data-body-message="Você quer eliminar este usuario?">Delete</a>
+                </td>
+            </tr>
+        }
+    }
+
+</table>
